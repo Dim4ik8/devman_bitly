@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 
 def shorten_link(url, token):
     headers = {'Authorization': f'Bearer {token}'}
-    link_for_creating_bitlink = 'https://api-ssl.bitly.com/v4/bitlinks'
+    link = 'https://api-ssl.bitly.com/v4/bitlinks'
     body = {"long_url": url}
-    response = requests.post(link_for_creating_bitlink, headers=headers, json=body)
+    response = requests.post(link, headers=headers, json=body)
     response.raise_for_status()
     return response.json()['link']
 
