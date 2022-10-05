@@ -21,7 +21,8 @@ def count_clicks(link, token):
     url = f'https://api-ssl.bitly.com/v4/bitlinks/{bitlink}/clicks/summary'
     response = requests.get(url, headers=headers)
     response.raise_for_status()
-    return response.json()['total_clicks']
+    quantity = response.json()['total_clicks']
+    return f'Количество переходов по ссылке Битли: {quantity}'
 
 
 def is_bitlink(url, token):
@@ -41,7 +42,7 @@ def main():
     parser = argparse.ArgumentParser(
         description='Скрипт для сокращения ссылок'
     )
-    parser.add_argument('-e', '--email', help='Адрес электронной почты')
+    parser.add_argument('email', help='Адрес электронной почты')
 
     args = parser.parse_args()
     link = args.email
