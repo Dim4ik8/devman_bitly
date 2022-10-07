@@ -42,7 +42,7 @@ def main():
     parser = argparse.ArgumentParser(
         description='Скрипт для сокращения ссылок'
     )
-    parser.add_argument('email', help='Адрес электронной почты')
+    parser.add_argument('email', help='Адрес электронной почты в формате http://yandex.ru')
 
     args = parser.parse_args()
     link = args.email
