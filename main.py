@@ -42,10 +42,10 @@ def main():
     parser = argparse.ArgumentParser(
         description='Скрипт для сокращения ссылок'
     )
-    parser.add_argument('email', help='Адрес электронной почты в формате http://yandex.ru')
+    parser.add_argument('link', help='Введите любую ссылку в формате http://yandex.ru')
 
     args = parser.parse_args()
-    link = args.email
+    link = args.link
 
     if is_bitlink(link, token):
         clicks = count_clicks(link, token)
